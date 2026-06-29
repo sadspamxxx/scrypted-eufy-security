@@ -79,6 +79,7 @@ function patchEufyClient() {
   const file = 'src/eufy-client.ts';
   let content = read(file);
 
+  content = content.replace('import path from "path";\n', '');
   content = content.replace(
     'const childPath = path.join(__dirname, "fallback", "child-wrapper.js");',
     'const childPath = __filename;',
