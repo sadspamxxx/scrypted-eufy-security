@@ -7,7 +7,7 @@
     "dist/plugin.zip"
   ],
   "scripts": {
-    "build": "scrypted-webpack",
+    "build": "node scripts/apply-runtime-fallback-patch.mjs && scrypted-webpack",
     "tsc": "tsc",
     "test": "jest --passWithNoTests",
     "lint": "eslint 'src/**/*.ts'",
@@ -16,7 +16,7 @@
     "scrypted-deploy": "scrypted-deploy",
     "scrypted-deploy-debug": "scrypted-deploy-debug",
     "scrypted-debug": "scrypted-debug",
-    "prepublishOnly": "NODE_ENV=production scrypted-webpack"
+    "prepublishOnly": "NODE_ENV=production npm run build"
   },
   "scrypted": {
     "name": "Eufy Security",
